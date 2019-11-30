@@ -1,0 +1,41 @@
+
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+
+# 분포 확인
+
+plt.style.use('ggplot') # Using ggplot2 style visuals 
+f, ax = plt.subplots(figsize = (11, 15)) # 그래프 사이즈
+
+ax.set_facecolor('#fafafa') # 그래프 색상값
+ax.set(xlim = (-5, 5)) # X축 범위
+plt.ylabel('Variables') # Y축 이름
+plt.title("Overview Data Set") # 그래프 제목
+ax = sns.boxplot(data = data.drop(columns = ['Class']), # V1 ~ V28 확인
+                 orient = 'h', 
+                 palette = 'Set2')
+
+
+# 클래스 간 차이를 살핌
+
+var = data.columns.values[:-1] # V1 ~ V28
+i = 0
+t0 = data.loc[data['Class'] == 0] # Class : 0 인 행만 추출
+t1 = data.loc[data['Class'] == 1] # Class : 1 인 행만 추출
+
+sns.set_style('whitegrid') # 그래프 스타일 지정
+plt.figure()
+fig, ax = plt.subplots(8, 4, figsize = (16, 28)) # 축 지정
+
+for feature in var:
+    i += 1
+    plt.subplot(7, 4, i) # 28개의 그래프
+    sns.kdeplot(t0[feature], bw = 0.5, label = "Class = 0")
+    sns.kdeplot(t1[feature], bw = 0.5, label = "Class = 1")
+    plt.xlabel(feature, fontsize = 12) # 라벨 속성값
+    locs, labels = plt.xticks()
+    plt.tick_params(axis = 'both', which = 'major', labelsize = 12)
+plt.show();
