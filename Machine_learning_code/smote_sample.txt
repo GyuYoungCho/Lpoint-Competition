@@ -1,0 +1,9 @@
+from imblearn.over_sampling import SMOTE
+print("Before OverSampling, counts of label '1': {}".format(sum(y_train == 1))) # y_train 중 레이블 값이 1인 데이터의 개수
+print("Before OverSampling, counts of label '0': {} \n".format(sum(y_train == 0))) # y_train 중 레이블 값이 0 인 데이터의 개수
+
+sm = SMOTE(random_state = 42, ratio = 0.3) # SMOTE 알고리즘, 비율 증가(30%증가)
+X_train_res, y_train_res = sm.fit_sample(X_train, y_train.ravel()) # Over Sampling 진행
+
+print("After OverSampling, counts of label '1': {}".format(sum(y_train_res==1)))
+print("After OverSampling, counts of label '0': {}".format(sum(y_train_res==0)))
