@@ -1,0 +1,2 @@
+# 칼럼 인덱스 순서
+(((df['duration'].sort_values()).reset_index()).drop('index',axis=1))
