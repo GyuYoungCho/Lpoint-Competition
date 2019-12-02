@@ -6,6 +6,7 @@
   </head>
   <body>
     <div>Teachable Machine Image Model</div>
+    <div>캔 플라스틱 빛 손 만 인식합니다.</div>
 <button type="button" onclick="init()">Start</button>
 <div id="webcam-container"></div>
 <div id="label-container"></div>
@@ -57,23 +58,23 @@
     async function predict() {
         // predict can take in an image, video or canvas html element
         const prediction = await model.predict(webcam.canvas);
-        if (prediction[0].className == "can" && prediction[0].probability.toFixed(2) == 1.00) {
-            labelContainer.childNodes[0].innerHTML = "머리깡통"
-        } else if (prediction[1].className == "plastic" && prediction[1].probability.toFixed(2) == 1.00) {
-            labelContainer.childNodes[0].innerHTML = "재활용하자"
-        } else if (prediction[2].className == "light" && prediction[2].probability.toFixed(2) == 1.00) {
-            labelContainer.childNodes[0].innerHTML = "눈부셔"
-        }else if (prediction[3].className == "hand" && prediction[3].probability.toFixed(2) == 1.00) {
-            labelContainer.childNodes[0].innerHTML = "손님"
-        }else {
-            labelContainer.childNodes[0].innerHTML = "이게 뭐야"
-        }
-
-        // for (let i = 0; i < maxPredictions; i++) {
-        //     const classPrediction =
-        //         prediction[i].className + ": " + prediction[i].probability.toFixed(2);
-        //     labelContainer.childNodes[i].innerHTML = classPrediction;
+        // if (prediction[0].className == "can" && prediction[0].probability.toFixed(2) == 1.00) {
+        //     labelContainer.childNodes[0].innerHTML = "머리깡통"
+        // } else if (prediction[1].className == "plastic" && prediction[1].probability.toFixed(2) == 1.00) {
+        //     labelContainer.childNodes[0].innerHTML = "재활용하자"
+        // } else if (prediction[2].className == "light" && prediction[2].probability.toFixed(2) == 1.00) {
+        //     labelContainer.childNodes[0].innerHTML = "눈부셔"
+        // }else if (prediction[3].className == "hand" && prediction[3].probability.toFixed(2) == 1.00) {
+        //     labelContainer.childNodes[0].innerHTML = "손님"
+        // }else {
+        //     labelContainer.childNodes[0].innerHTML = "이게 뭐야"
         // }
+
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+            labelContainer.childNodes[i].innerHTML = classPrediction;
+        }
     }
 </script>
 
