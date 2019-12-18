@@ -1,0 +1,18 @@
+영어
+http://www.kaggle.com/datasets
+http://archive.ics.uci.edu/ml/index.php
+http://ana.cachopo.org/datasets-for-single-label-text-categorization
+http://course.fast.ai/datasets
+
+한국어
+http://korguad.github.io/
+http://ithub.korean.go.kr/user/guide/corpus/guide1/do
+http://konlpy-ko.readthedocs.io/ko/v0.5.1/data/
+http://aiopen.etri.re.kr/service_dataset.php
+
+
+토큰화(단위로 나누기) -> 불용어(stopword) 처리(a,the,on 등) -> 대소문자처리 
+-> 어근 추출(단어 표현 통일) -> 텍스트 인코딩(벡터,숫자로 표현,워드 임베딩)
+
+lemmatization -> 통일된 표현을 실제 사전에 있는 등 존재하는 표현으로
+stemming -> 알고리즘을 통해 기계적 변환(규칙이 있음)
