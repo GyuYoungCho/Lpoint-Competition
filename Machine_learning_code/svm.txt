@@ -1,0 +1,13 @@
+import pandas as pd
+import numpy as np
+from sklearn.svm import SVR
+from sklearn import metrics
+from sklearn.model_selection import train_test_split
+inputArr = pd.DataFrame(inputs[0])
+
+X =inputArr.iloc[:,1:86].values
+y = inputArr.iloc[:,0].values
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3)
+svr = SVR(kernel='poly',degree=2, gamma='auto',C=5)
+svr.fit(X_train, y_train)
