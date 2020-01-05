@@ -6,8 +6,7 @@ class TodayRecommend():
         now = datetime.now()
         self.hour = now.hour
         self.weekday = now.weekday()
-    def today_recommend(self):
-        TFI = pd.read_csv('transfer.csv')
+    def today_recommend(self, TFI):
         tfi1 = TFI[['de_tm','de_dt','pd_c']]
         tfi1['de_dt'] = pd.to_datetime(tfi1['de_dt'], format='%Y%m%d')
         tfi1['hour'] = (pd.to_datetime(tfi1['de_tm'])).dt.strftime("%H")
