@@ -22,3 +22,8 @@ git merge name 현재 branch와 합침
 git rebase master base를 master로 rebase함
 git branch -d name branch 지우기
 
+<<<<<<< HEAD
+=======
+소스트리로 브랜치 생성, 
+git log --all --decorate --graph --oneline
+>>>>>>> e4ed86a917d3f9f299de996103b824dc4dfb8d40
