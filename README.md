@@ -1,3 +1,0 @@
-# rbud
-
-# gyuyoung's portfolio

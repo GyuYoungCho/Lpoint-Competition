@@ -1,9 +1,0 @@
-# 칼럼 인덱스 순서
-(((df['duration'].sort_values()).reset_index()).drop('index',axis=1))
-
-bootstrap 시 뽑힐 확률분포
-y = log(x)  최근 데이터에 가중치를 더 두게 됨
-
-틀린 데이터만 가지고 군집분석 (dbscan 등) 진행
-0과 1이 섞인 군집에서 0이 있는 데이터 지움(학습을 방해하는 데이터일 가능성이 있다)
-또는 1을 지우고 1을 잘 예측한 부분에서 dbsmote 적용
